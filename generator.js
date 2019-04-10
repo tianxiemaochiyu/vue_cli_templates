@@ -41,9 +41,6 @@ module.exports = (api, options, rootOptions) => {
         './.browserslistrc': './_browserslistrc',
         './babel.config.js': './babel.config.js',
         './postcss.config.js': './postcss.config.js',
-        './vue.config.js': './vue.config.js',
-        './src/App.vue': './src/App.vue',
-        './src/main.js': './src/main.js',
-        './src/router.js': './src/router.js',
+        './vue.config.js': './vue.config.js'
     });
 }
