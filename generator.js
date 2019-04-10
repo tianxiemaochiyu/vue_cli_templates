@@ -40,7 +40,7 @@ module.exports = (api, options, rootOptions) => {
         './.gitignore': './_gitignore',
         './.browserslistrc': './_browserslistrc',
         './babel.config.js': './babel.config.js',
-        './postcss.config': './postcss.config',
+        './postcss.config.js': './postcss.config.js',
         './vue.config.js': './vue.config.js',
     });
 }
