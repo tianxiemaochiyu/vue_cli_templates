@@ -1,0 +1,14 @@
+{
+  "navbar": {
+    "home": "Home"
+  },
+  "footerbar": {
+    "title": "Footer Bar"
+  },
+  "home": {
+  },
+  "global": {
+    "cory-success": "Copy success",
+    "error": "Error"
+  }
+}
