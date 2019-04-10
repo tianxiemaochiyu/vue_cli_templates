@@ -1,1 +1,1 @@
-# vue_cli_templates
+# Vue Cli 3.0 Templates
