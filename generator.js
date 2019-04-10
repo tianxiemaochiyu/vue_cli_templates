@@ -31,18 +31,18 @@ module.exports = (api, options, rootOptions) => {
     });
 
     // 公共基础目录和文件
-    api.render('./src/api');
-    api.render('./src/assets');
-    api.render('./src/components');
-    api.render('./src/config');
-    api.render('./src/directives');
-    api.render('./src/filters');
-    api.render('./src/interceptors');
-    api.render('./src/libs');
-    api.render('./src/locale');
-    api.render('./src/plugins');
-    api.render('./src/store');
-    api.render('./src/views');
+    api.render('src');
+    // api.render('./src/assets');
+    // api.render('./src/components');
+    // api.render('./src/config');
+    // api.render('./src/directives');
+    // api.render('./src/filters');
+    // api.render('./src/interceptors');
+    // api.render('./src/libs');
+    // api.render('./src/locale');
+    // api.render('./src/plugins');
+    // api.render('./src/store');
+    // api.render('./src/views');
 
     // 配置文件
     api.render({
