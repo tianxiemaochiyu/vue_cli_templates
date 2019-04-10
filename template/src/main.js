@@ -13,7 +13,7 @@ import '@/filters'
 
 import en_US from '@/locale/en-US.json'
 import zh_CN from '@/locale/zh-CN.json'
-
+window.GLOBAL = {};
 window.GLOBAL.vbus = new Vue();
 
 Vue.use(inject);
