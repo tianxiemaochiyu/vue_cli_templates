@@ -6,4 +6,4 @@
 
 `
 vue create --preset tianxiemaochiyu/vue_cli_templates my-project
-`js
+`
