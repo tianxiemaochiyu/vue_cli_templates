@@ -3,6 +3,19 @@
  */
 module.exports = (api, options, rootOptions) => {
     api.extendPackage({
+        "husky": {
+          "hooks": {
+            "pre-commit": "lint-staged"
+          }
+        },
+        "lint-staged": {
+          "src/**/*.{js,vue,jsx,ts,tsx,json,css,scss,md}": [
+            "prettier --write"
+          ],
+          "src/*.{js,vue,jsx,ts,tsx,json,css,scss,md}": [
+            "prettier --write"
+          ]
+        },
         "dependencies": {
             "axios": "^0.19.2",
             "babel-polyfill": "^6.26.0",
@@ -15,29 +28,29 @@ module.exports = (api, options, rootOptions) => {
             "vue-i18n": "^8.20.0",
             "vue-router": "^3.2.0",
             "vuex": "^3.4.0"
-          },
-          "devDependencies": {
-            "@vue/cli-plugin-babel": "~4.5.0",
-            "@vue/cli-plugin-eslint": "~4.5.0",
-            "@vue/cli-plugin-router": "~4.5.0",
-            "@vue/cli-plugin-vuex": "~4.5.0",
-            "@vue/cli-service": "~4.5.0",
-            "@vue/eslint-config-prettier": "^6.0.0",
-            "babel-eslint": "^10.1.0",
-            "babel-plugin-component": "^1.1.1",
-            "compression-webpack-plugin": "^4.0.0",
-            "eslint": "^6.7.2",
-            "eslint-plugin-prettier": "^3.1.3",
-            "eslint-plugin-vue": "^6.2.2",
-            "husky": "^4.2.5",
-            "lint-staged": "^10.2.11",
-            "node-sass": "^4.12.0",
-            "prettier": "^2.0.5",
-            "sass-loader": "^9.0.3",
-            "svg-sprite-loader": "^5.0.0",
-            "terser-webpack-plugin": "^4.1.0",
-            "vue-template-compiler": "^2.6.11"
-          }
+        },
+        "devDependencies": {
+          "@vue/cli-plugin-babel": "~4.5.0",
+          "@vue/cli-plugin-eslint": "~4.5.0",
+          "@vue/cli-plugin-router": "~4.5.0",
+          "@vue/cli-plugin-vuex": "~4.5.0",
+          "@vue/cli-service": "~4.5.0",
+          "@vue/eslint-config-prettier": "^6.0.0",
+          "babel-eslint": "^10.1.0",
+          "babel-plugin-component": "^1.1.1",
+          "compression-webpack-plugin": "^4.0.0",
+          "eslint": "^6.7.2",
+          "eslint-plugin-prettier": "^3.1.3",
+          "eslint-plugin-vue": "^6.2.2",
+          "husky": "^4.2.5",
+          "lint-staged": "^10.2.11",
+          "node-sass": "^4.12.0",
+          "prettier": "^2.0.5",
+          "sass-loader": "^9.0.3",
+          "svg-sprite-loader": "^5.0.0",
+          "terser-webpack-plugin": "^4.1.0",
+          "vue-template-compiler": "^2.6.11"
+        }
     });
 
     // 公共基础目录和文件
