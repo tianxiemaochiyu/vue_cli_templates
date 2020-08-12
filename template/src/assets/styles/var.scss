@@ -1,20 +1,13 @@
-/**
- * Created by catscorpio on 2019/3/12.
- */
+:root {
+    --themeColor: #41b883;
+}
 
-$primary-color: #4848c6;
-$primary-font-color: #666470;
+$--color-primary: var(--themeColor);
 
-$navbar-height: 3.5rem;
-$navbar-fontsize: 1.1rem;
-$footer-bg: #1c1c1d;
-$footer-info-height: 5rem;
-$footer-copyright-height: 3rem;
+$--nav-bar-height: 50px;
+$--footer-bar-height: 50px;
 
-$border-radius: 6px;
-$gutter: 2.4rem;
-
-$xs:575.98px;
-$sm:767.98px;
-$md:991.98px;
-$lg:1199.98px;
+$xs: 575.98px;
+$sm: 767.98px;
+$md: 991.98px;
+$lg: 1199.98px;

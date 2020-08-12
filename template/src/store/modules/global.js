@@ -1,34 +1,49 @@
-export default {
+import { setLocalStore, getLocalStore } from "@/utils/storage"
+
+const global = {
     state: {
-        config: {},
-        screenSize: getScreentSize(window.innerWidth)
+        mode: getLocalStore("theme-mode")
+            ? getLocalStore("theme-mode")
+            : (setLocalStore("theme-mode", "dark"), "dark"),
+        language: getLocalStore("local_language") || "zh-CN", // 当前语言
+        scroll_status: false,
+        device: "pc",
     },
     mutations: {
-        SET_CONFIG: (state, config) =>{
-            state.config = config
+        SET_SCROLL_STATUS: (state, status) => {
+            state.scroll_status = status
         },
-        SET_SCREEN_SIZE: (state, size) =>{
-            state.screenSize = getScreentSize(size)
-        }
+        SET_LOCALE: (state, locale) => {
+            if (locale === "zh-CN") {
+                state.locale = "zh-CN"
+            } else {
+                state.locale = "en"
+            }
+            state.language = locale
+        },
+        SET_THEME_MODE: (state, mode) => {
+            state.mode = mode
+            setLocalStore("theme-mode", mode)
+        },
+        SET_DEVICE: (state, device) => {
+            state.device = device
+        },
     },
     actions: {
-        SetConfig({commit}, config){
-            commit('SET_CONFIG', config)
+        SetThemeMode({ commit }, mode) {
+            commit("SET_THEME_MODE", mode)
         },
-        SetScreenSize({commit}, size){
-            commit('SET_SCREEN_SIZE', size)
-        }
-    }
+        SetScrollStatus({ commit }, status) {
+            commit("SET_SCROLL_STATUS", status)
+        },
+        SetLocale({ commit }, locale) {
+            commit()
+            setLocalStore("local_language", locale)
+        },
+        SetDevice({ commit }, device) {
+            commit("SET_DEVICE", device)
+        },
+    },
 }
 
-function getScreentSize(size) {
-    let mode = 'lg'
-    if(size <= 575.98){
-        mode = 'xs'
-    }else if(size <= 767.98){
-        mode = 'sm'
-    }else if(size <= 991.98){
-        mode = 'md'
-    }
-    return mode
-}
+export default global

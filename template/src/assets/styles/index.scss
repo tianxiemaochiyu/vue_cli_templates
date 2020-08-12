@@ -1,0 +1,109 @@
+@import "./reset.scss";
+@import "../fonts/index.scss";
+body,
+div,
+span,
+header,
+footer,
+nav,
+section,
+aside,
+article,
+ul,
+dl,
+dt,
+dd,
+li,
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+i,
+b,
+textarea,
+button,
+input,
+select,
+figure,
+figcaption {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-style: normal;
+    text-decoration: none;
+    border: none;
+    font-weight: normal;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    &:hover {
+        outline: none;
+    }
+}
+
+html {
+    min-height: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+    display: flex;
+}
+
+body {
+    flex: 1 0 auto;
+    background-color: #fff !important;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font: 16px/1.7 DINPro-Medium, IBMPlexSans-Medium, Microsoft YaHei,
+        PingFangSC-Regular, Arial, sans-serif !important;
+}
+
+label {
+    font-weight: 700;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.container {
+    margin: 0 auto;
+    width: 1400px;
+}
+
+.svg-icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        width: 100%;
+    }
+    .container {
+        margin: 0 auto;
+        width: 100%;
+        padding: 0 10px;
+    }
+}
