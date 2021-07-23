@@ -37,34 +37,36 @@ module.exports = {
     return;
   },
   configureWebpack: (config) => {
-    // gzip
-    config.plugins.push(
-      new CompressionWebpackPlugin({
-        filename: "[path].gz[query]",
-        algorithm: "gzip",
-        test: new RegExp("\\.(" + productionGzipExtensions.join("|") + ")$"),
-        threshold: 10240,
-        minRatio: 0.8,
-      })
-    );
-    // source map
-    config.devtool = "cheap-module-source-map";
-    config.optimization = {
-      minimize: true,
-      minimizer: [
-        new TerserPlugin({
-          terserOptions: {
-            compress: {
-              drop_console: true, //console
-              drop_debugger: true,
-              pure_funcs: ["console.log"], //remove console
+    if (process.env.NODE_ENV === "production") {
+      // gzip
+      config.plugins.push(
+        new CompressionWebpackPlugin({
+          filename: "[path][base].gz",
+          algorithm: "gzip",
+          test: new RegExp("\\.(" + productionGzipExtensions.join("|") + ")$"),
+          threshold: 10240,
+          minRatio: 0.8,
+        })
+      );
+      // source map
+      config.devtool = "cheap-module-source-map";
+      config.optimization = {
+        minimize: true,
+        minimizer: [
+          new TerserPlugin({
+            terserOptions: {
+              compress: {
+                drop_console: true, //console
+                drop_debugger: true,
+                pure_funcs: ["console.log"], //remove console
+              },
+              ie8: true,
+              safari10: true,
             },
-            ie8: true,
-            safari10: true,
-          },
-        }),
-      ],
-    };
+          }),
+        ],
+      };
+    }
   },
   devServer: {
     port: 8080,
@@ -85,7 +87,7 @@ module.exports = {
   },
   css: {
     loaderOptions: {
-      sass: {
+      scss: {
         prependData: `@import "@/assets/styles/var.scss";`,
       },
     },
