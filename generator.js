@@ -36,7 +36,7 @@ module.exports = (api, options, rootOptions) => {
         "sass": "^1.26.5",
         "sass-loader": "^8.0.2",
         "svg-sprite-loader": "^6.0.9",
-        "terser-webpack-plugin": "^5.1.4",
+        "terser-webpack-plugin": "^4.2.3",
         "typescript": "~4.1.5"
       },
       "husky": {
