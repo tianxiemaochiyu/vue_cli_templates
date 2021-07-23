@@ -11,10 +11,7 @@ const productionGzipExtensions = ["js", "css", "png", "webp"];
 
 module.exports = {
   chainWebpack: (config) => {
-    config.plugin("html").tap((options) => {
-      options[0].title = process.env.VUE_APP_NAME;
-      return options;
-    });
+
     config.module.rule("svg").exclude.add(resolve("src/assets/icons")).end();
     config.module
       .rule("svgSpriteLoader")
@@ -37,7 +34,6 @@ module.exports = {
     return;
   },
   configureWebpack: (config) => {
-    if (process.env.NODE_ENV === "production") {
       // 生产环境 开启gzip
       config.plugins.push(
         new CompressionWebpackPlugin({
