@@ -34,6 +34,10 @@ module.exports = {
     return;
   },
   configureWebpack: (config) => {
+      config.plugin("html").tap((options) => {
+        options[0].title = process.env.VUE_APP_NAME;
+        return options;
+      });
       // 生产环境 开启gzip
       config.plugins.push(
         new CompressionWebpackPlugin({
