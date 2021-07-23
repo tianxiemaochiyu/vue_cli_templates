@@ -124,7 +124,7 @@ function RESTApiBuilder({
         pathParams: {},
         hasRetry: false,
         retryCount: 3,
-      }
+      };
       let obj: RequestConfig = {
         url: URL,
         method: api.method,
