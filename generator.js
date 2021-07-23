@@ -26,7 +26,7 @@ module.exports = (api, options, rootOptions) => {
         "@vue/compiler-sfc": "^3.0.0",
         "@vue/eslint-config-prettier": "^6.0.0",
         "@vue/eslint-config-typescript": "^7.0.0",
-        "compression-webpack-plugin": "^8.0.1",
+        "compression-webpack-plugin": "^6.1.1",
         "eslint": "^6.7.2",
         "eslint-plugin-prettier": "^3.3.1",
         "eslint-plugin-vue": "^7.0.0",

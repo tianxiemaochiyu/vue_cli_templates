@@ -11,7 +11,10 @@ const productionGzipExtensions = ["js", "css", "png", "webp"];
 
 module.exports = {
   chainWebpack: (config) => {
-
+    config.plugin("html").tap((options) => {
+      options[0].title = process.env.VUE_APP_NAME;
+      return options;
+    });
     config.module.rule("svg").exclude.add(resolve("src/assets/icons")).end();
     config.module
       .rule("svgSpriteLoader")
@@ -34,40 +37,34 @@ module.exports = {
     return;
   },
   configureWebpack: (config) => {
-      config.plugin("html").tap((options) => {
-        options[0].title = process.env.VUE_APP_NAME;
-        return options;
-      });
-      // 生产环境 开启gzip
-      config.plugins.push(
-        new CompressionWebpackPlugin({
-          filename: "[path].gz[query]",
-          algorithm: "gzip",
-          test: new RegExp("\\.(" + productionGzipExtensions.join("|") + ")$"),
-          threshold: 10240,
-          minRatio: 0.8,
-        })
-      );
-      // 添加source map
-      config.devtool = "cheap-module-source-map";
-      config.optimization = {
-        minimize: true,
-        minimizer: [
-          new TerserPlugin({
-            terserOptions: {
-              compress: {
-                drop_console: true, //console
-                drop_debugger: true,
-                pure_funcs: ["console.log"], //移除console
-              },
-              ie8: true,
-              safari10: true,
+    // gzip
+    config.plugins.push(
+      new CompressionWebpackPlugin({
+        filename: "[path].gz[query]",
+        algorithm: "gzip",
+        test: new RegExp("\\.(" + productionGzipExtensions.join("|") + ")$"),
+        threshold: 10240,
+        minRatio: 0.8,
+      })
+    );
+    // source map
+    config.devtool = "cheap-module-source-map";
+    config.optimization = {
+      minimize: true,
+      minimizer: [
+        new TerserPlugin({
+          terserOptions: {
+            compress: {
+              drop_console: true, //console
+              drop_debugger: true,
+              pure_funcs: ["console.log"], //remove console
             },
-          }),
-        ],
-      };
-    }
-    return;
+            ie8: true,
+            safari10: true,
+          },
+        }),
+      ],
+    };
   },
   devServer: {
     port: 8080,
