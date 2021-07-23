@@ -60,3 +60,10 @@ module.exports = (api, options, rootOptions) => {
     // render project dir
     api.render('./template');
 }
+
+module.exports.hooks = (api) => {
+  api.afterInvoke(() => {
+    const fs = require('fs');
+    fs.writeFileSync(api.resolve("./.env"), `VUE_APP_NAME=${api.rootOptions.projectName}`, { encoding: 'utf-8' })
+  })
+}
