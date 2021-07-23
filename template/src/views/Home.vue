@@ -1,21 +1,25 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="@/assets/images/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <img alt="Vue logo" src="@/assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <icon-svg :symbol="menu" />
   </div>
 </template>
 
-<script>
-
+<script lang="ts">
+import { defineComponent } from "vue";
 import HelloWorld from "@/components/HelloWorld.vue";
+import menu from "@/assets/icons/menu.svg";
 
-export default {
+export default defineComponent({
   name: "Home",
   components: {
-    HelloWorld
+    HelloWorld,
   },
-  created(){
-
-  }
-};
+  data() {
+    return {
+      menu,
+    };
+  },
+});
 </script>

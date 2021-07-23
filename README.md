@@ -1,6 +1,6 @@
 # Vue Cli 4.0 Templates
 
-这是一个基于Vue Cli 4.0的项目模板，后续会补充说明目录结构
+Vue 3 + Typescript + Vue Cli 4.0 Preset
 
 # Use
 

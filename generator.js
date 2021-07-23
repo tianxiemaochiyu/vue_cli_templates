@@ -3,68 +3,57 @@
  */
 module.exports = (api, options, rootOptions) => {
     api.extendPackage({
-        "husky": {
-          "hooks": {
-            "pre-commit": "lint-staged"
-          }
-        },
-        "lint-staged": {
-          "src/**/*.{js,vue,jsx,ts,tsx,json,css,scss,md}": [
-            "prettier --write"
-          ],
-          "src/*.{js,vue,jsx,ts,tsx,json,css,scss,md}": [
-            "prettier --write"
-          ]
-        },
-        "dependencies": {
-            "axios": "^0.19.2",
-            "babel-polyfill": "^6.26.0",
-            "bignumber.js": "^9.0.0",
-            "core-js": "^3.6.5",
-            "element-ui": "^2.13.2",
-            "normalize.css": "^8.0.1",
-            "nprogress": "^0.2.0",
-            "vue": "^2.6.11",
-            "vue-i18n": "^8.20.0",
-            "vue-router": "^3.2.0",
-            "vuex": "^3.4.0"
-          },
-          "devDependencies": {
-            "@vue/cli-plugin-babel": "~4.5.0",
-            "@vue/cli-plugin-eslint": "~4.5.0",
-            "@vue/cli-plugin-router": "~4.5.0",
-            "@vue/cli-plugin-vuex": "~4.5.0",
-            "@vue/cli-service": "~4.5.0",
-            "@vue/eslint-config-prettier": "^6.0.0",
-            "babel-eslint": "^10.1.0",
-            "babel-plugin-component": "^1.1.1",
-            "compression-webpack-plugin": "^4.0.0",
-            "eslint": "^6.7.2",
-            "eslint-plugin-prettier": "^3.1.3",
-            "eslint-plugin-vue": "^6.2.2",
-            "husky": "^4.2.5",
-            "lint-staged": "^10.2.11",
-            "node-sass": "^4.12.0",
-            "prettier": "^2.0.5",
-            "sass-loader": "^9.0.3",
-            "svg-sprite-loader": "^5.0.0",
-            "terser-webpack-plugin": "^4.1.0",
-            "vue-template-compiler": "^2.6.11"
-          }
+      "dependencies": {
+        "assert": "^2.0.0",
+        "axios": "^0.21.1",
+        "lodash": "^4.17.21",
+        "vue": "^3.0.0",
+        "vue-router": "^4.0.0-0",
+        "vuex": "^4.0.0-0"
+      },
+      "devDependencies": {
+        "@types/assert": "^1.5.5",
+        "@types/lodash": "^4.14.171",
+        "@types/svg-sprite-loader": "^3.9.4",
+        "@typescript-eslint/eslint-plugin": "^4.18.0",
+        "@typescript-eslint/parser": "^4.18.0",
+        "@vue/cli-plugin-babel": "~4.5.0",
+        "@vue/cli-plugin-eslint": "~4.5.0",
+        "@vue/cli-plugin-router": "~4.5.0",
+        "@vue/cli-plugin-typescript": "~4.5.0",
+        "@vue/cli-plugin-vuex": "~4.5.0",
+        "@vue/cli-service": "~4.5.0",
+        "@vue/compiler-sfc": "^3.0.0",
+        "@vue/eslint-config-prettier": "^6.0.0",
+        "@vue/eslint-config-typescript": "^7.0.0",
+        "compression-webpack-plugin": "^8.0.1",
+        "eslint": "^6.7.2",
+        "eslint-plugin-prettier": "^3.3.1",
+        "eslint-plugin-vue": "^7.0.0",
+        "husky": "^7.0.1",
+        "lint-staged": "^11.1.0",
+        "prettier": "^2.2.1",
+        "sass": "^1.26.5",
+        "sass-loader": "^8.0.2",
+        "svg-sprite-loader": "^6.0.9",
+        "terser-webpack-plugin": "^5.1.4",
+        "typescript": "~4.1.5"
+      },
+      "husky": {
+        "hooks": {
+          "pre-commit": "lint-staged"
+        }
+      },
+      "lint-staged": {
+        "src/**/*.{js,vue,jsx,ts,tsx,json,css,scss,md}": [
+          "prettier --write"
+        ],
+        "src/*.{js,vue,jsx,ts,tsx,json,css,scss,md}": [
+          "prettier --write"
+        ]
+      }
     });
 
-    // 公共基础目录和文件
+    // render project dir
     api.render('./template');
-
-    // 配置文件
-    api.render({
-        './.eslintrc.js': './_eslintrc.js',
-        './.env': './_env',
-        './.gitignore': './_gitignore',
-        './.browserslistrc': './_browserslistrc',
-        './.prettierrc': './_prettierrc',
-        './babel.config.js': './babel.config.js',
-        './postcss.config.js': './postcss.config.js',
-        './vue.config.js': './vue.config.js'
-    });
 }

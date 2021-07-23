@@ -1,7 +1,5 @@
 {
   "useConfigFiles": true,
-  "plugins": {
-  },
-  "configs": {
-  }
+  "plugins": {},
+  "configs": {}
 }
