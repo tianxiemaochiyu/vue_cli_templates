@@ -2,9 +2,6 @@
  * Created by catscorpio on 2019/4/10.
  */
 module.exports = (api, options, rootOptions) => {
-  console.log(api);
-  console.log(options);
-  console.log(rootOptions);
     api.extendPackage({
       "dependencies": {
         "assert": "^2.0.0",
