@@ -65,6 +65,6 @@ module.exports.hooks = (api) => {
 
     fs.unlink(api.resolve("./src/assets/logo.png"), (err) => {if (err) console.log(err)});
     fs.unlink(api.resolve("./src/main.js"), (err) => {if (err) console.log(err)});
-    fs,unlink(api.resolve("./src/App.vue"), (err) => {if (err) console.log(err)});
+    fs.unlink(api.resolve("./src/App.vue"), (err) => {if (err) console.log(err)});
   })
 }
