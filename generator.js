@@ -62,9 +62,9 @@ module.exports.hooks = (api) => {
   api.afterInvoke(() => {
     const fs = require('fs');
     fs.writeFileSync(api.resolve("./.env"), `VUE_APP_NAME=${api.rootOptions.projectName}`, { encoding: 'utf-8' });
-    
-    fs.rm(api.resolve("./src/assets/logo.png"), { force: true });
-    fs.rm(api.resolve("./src/main.js"), { force: true });
-    fs.rm(api.resolve("./src/App.vue"), { force: true });
+
+    fs.unlink.rm(api.resolve("./src/assets/logo.png"), { force: true });
+    fs.unlink.rm(api.resolve("./src/main.js"), { force: true });
+    fs,unlink.rm(api.resolve("./src/App.vue"), { force: true });
   })
 }
